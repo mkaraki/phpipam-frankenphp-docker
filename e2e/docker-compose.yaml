@@ -11,7 +11,7 @@ services:
       - ./config.php:/var/www/phpipam/config.php:ro
   
   mariadb:
-    image: mariadb:latest
+    image: mariadb:latest@sha256:e16f61b8f6ed25111adbb1c5c19bbc2904efc8ed14029999af0cbe1c7ae18bf1
     environment:
       MARIADB_ROOT_PASSWORD: toor
     healthcheck:
