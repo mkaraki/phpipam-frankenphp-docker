@@ -53,5 +53,5 @@
     ],
     "pinDigests": true,
     "separateMajorMinor": true,
-    "separateMinorPatch", true
+    "separateMinorPatch": true
 }
