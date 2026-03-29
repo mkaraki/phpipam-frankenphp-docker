@@ -32,15 +32,17 @@ RUN install-php-extensions \
     # filter \
     pcntl \
     # cli \
-    # mbstring
-    # Undocumented dependencies:
-    gd
+    # mbstring \
+    # Undocumented dependencies: \
+    gd \
     # iconv \
     # ctype \
     # curl \
     # dom \
     # pcre \
     # libxml \
+    # Additional dependencies for phpipam: \
+    snmp
 
 
 # renovate-debian: suite=trixie depName=fping
