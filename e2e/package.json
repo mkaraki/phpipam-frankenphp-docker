@@ -1,0 +1,10 @@
+{
+  "name": "phpipam-e2e",
+  "scripts": {
+    "cy:open": "cypress open"
+  },
+  "packageManager": "pnpm@10.29.2",
+  "devDependencies": {
+    "cypress": "^15.13.0"
+  }
+}

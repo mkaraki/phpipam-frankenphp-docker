@@ -57,5 +57,6 @@ USER ${USER}
 WORKDIR /var/www/phpipam
 COPY --from=clone --exclude=.git /phpipam /var/www/phpipam
 
-RUN cp /var/www/phpipam/config.dist.php /var/www/phpipam/config.php
+#RUN cp /var/www/phpipam/config.dist.php /var/www/phpipam/config.php
+RUN cp /var/www/phpipam/config.docker.php /var/www/phpipam/config.php
 

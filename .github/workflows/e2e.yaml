@@ -1,0 +1,75 @@
+name: E2E Test
+
+on:
+  push:
+    branches: [ "master" ]
+    paths:
+      - 'Dockerfile'
+      - 'e2e/**'
+      - '.github/workflows/e2e.yaml'
+  pull_request:
+    branches: [ "master" ]
+    paths:
+      - 'Dockerfile'
+      - 'e2e/**'
+      - '.github/workflows/e2e.yaml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Docker
+        uses: docker/setup-docker-action@1a6edb0ba9ac496f6850236981f15d8f9a82254d # v5
+        with:
+          version: latest
+
+      - name: Set up Docker Compose
+        uses: docker/setup-compose-action@8cccb8c14b6500aaffebff1aa49c502c34d2e5e6 # v2
+        with:
+          version: latest
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5
+        with:
+          package_json_file: e2e/package.json
+
+      - name: Install Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: 'pnpm'
+          cache-dependency-path: e2e/pnpm-lock.yaml
+
+      - name: Start dev compose
+        run: docker compose up --wait --build
+        working-directory: e2e
+
+      - name: Cypress run
+        uses: cypress-io/github-action@4c06c48f3ffea349b7189aa06dfcda47a9fa7b92 # v7
+        with:
+          package-manager-cache: false
+          working-directory: e2e
+          wait-on: 'http://localhost:8080'
+        env:
+          COMMIT_INFO_BRANCH: ${{ github.ref_name }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: cypress-screenshots
+          path: e2e/cypress/screenshots
+          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
+
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: cypress-videos
+          path: e2e/cypress/videos
+          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`

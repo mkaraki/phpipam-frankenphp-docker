@@ -1,0 +1,22 @@
+services:
+  app:
+    build:
+      context: ..
+    ports:
+      - 8080:80
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    volumes:
+      - ./config.php:/var/www/phpipam/config.php:ro
+  
+  mariadb:
+    image: mariadb:latest
+    environment:
+      MARIADB_ROOT_PASSWORD: toor
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      start_period: 120s
+      interval: 5s
+      timeout: 5s
+      retries: 3
