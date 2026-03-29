@@ -43,7 +43,7 @@
         },
         {
             "matchDatasources": ["docker"],
-            "matchPackageNames": ["bitnami/git", "dunglas/frankenphp"],
+            "matchPackageNames": ["bitnami/git", "dunglas/frankenphp", "mariadb"],
             "matchUpdateTypes": ["pin", "pinDigest", "digest"],
             "automerge": true,
             "platformAutomerge": true
