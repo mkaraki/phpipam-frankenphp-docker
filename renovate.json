@@ -37,11 +37,6 @@
         {
             "matchDatasources": ["docker"],
             "matchPackageNames": ["php"],
-            "separateMinorPatch": true
-        },
-        {
-            "matchDatasources": ["docker"],
-            "matchPackageNames": ["php"],
             "matchUpdateTypes": ["pin", "pinDigest", "digest"],
             "enabled": false
         },
@@ -57,5 +52,6 @@
         "mkaraki"
     ],
     "pinDigests": true,
-    "separateMajorMinor": false
+    "separateMajorMinor": true,
+    "separateMinorPatch", true
 }
