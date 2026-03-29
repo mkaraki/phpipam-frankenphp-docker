@@ -1,7 +1,9 @@
 # See list of supported versions: https://github.com/phpipam/phpipam?tab=readme-ov-file#supported-php-versions
 # Or check the check script: https://github.com/phpipam/phpipam/blob/master/functions/checks/check_php_build.php
 # renovate-docker: depName=php
-ARG PHP_VERSION="8.3.30"
+ARG PHP_VERSION="8.3.29"
+# renovate-docker: depName=dunglas/frankenphp
+ARG FRANKENPHP_VERSION="1.11.1"
 
 #---------------------------------------------------------
 FROM bitnami/git@sha256:e1d8c8b3fe0d8b213157478b1db32d405331394a60eacae0e8b4a4e0c650e9ed AS clone
@@ -12,7 +14,7 @@ ARG PHPIPAM_VERSION="v1.7.4"
 RUN git clone --depth 1 --recursive -b "${PHPIPAM_VERSION}" https://github.com/phpipam/phpipam.git /phpipam
 
 #---------------------------------------------------------
-FROM dunglas/frankenphp:1.11.1-php${PHP_VERSION}
+FROM dunglas/frankenphp:${FRANKENPHP_VERSION}-php${PHP_VERSION}
 
 # Check required extensions for phpipam: https://phpipam.net/documents/installation/
 # And undocumented dependencies: https://github.com/phpipam/phpipam/blob/master/functions/checks/check_php_build.php
