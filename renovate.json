@@ -1,0 +1,48 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "customManagers": [
+        {
+            "customType": "regex",
+            "managerFilePatterns": [
+                "/^Dockerfile$/"
+            ],
+            "matchStrings": [
+                "#\\s*renovate-github-release:\\s*repo=(?<packageName>.*?)?\\sARG .*_VERSION=\"(?<currentValue>.*)\""
+            ],
+            "datasourceTemplate": "github-releases"
+        },
+        {
+            "customType": "regex",
+            "managerFilePatterns": [
+                "/^Dockerfile$/"
+            ],
+            "matchStrings": [
+                "#\\s*renovate-docker:\\s*repo=(?<depName>.*?)?\\sARG .*_VERSION=\"(?<currentValue>.*)\""
+            ],
+            "datasourceTemplate": "docker"
+        }
+    ],
+    "packageRules": [
+        {
+            "groupName": "FrankenPHP and PHP",
+            "groupSlug": "frankenphp-and-php",
+            "matchPackageNames": ["dunglas/frankenphp", "php"]
+        },
+        {
+            "matchDatasources": ["docker"],
+            "matchPackageNames": ["dunglas/frankenphp"],
+            "versioning": "loose"
+        },
+        {
+            "matchDatasources": ["docker"],
+            "matchPackageNames": ["php"],
+            "matchUpdateTypes": ["major", "minor", "pin", "digest"],
+            "enabled": false
+        }
+    ],
+    "assignees": [
+        "mkaraki"
+    ],
+    "pinDigests": true,
+    "separateMajorMinor": false
+}
