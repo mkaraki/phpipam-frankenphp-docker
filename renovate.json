@@ -44,7 +44,7 @@
         {
             "matchDatasources": ["docker"],
             "matchPackageNames": ["php"],
-            "matchUpdateTypes": ["pin", "pinDigest", "digest"],
+            "matchUpdateTypes": ["major", "minor", "pin", "pinDigest", "digest"],
             "enabled": false
         },
         {
