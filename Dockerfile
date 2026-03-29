@@ -16,8 +16,8 @@ RUN git clone --depth 1 --recursive -b "${PHPIPAM_VERSION}" https://github.com/p
 #---------------------------------------------------------
 FROM composer AS composer
 
-WORKDIR /app
 COPY --from=clone --exclude=.git /phpipam /app
+WORKDIR /app/functions
 
 RUN composer install --ignore-platform-reqs
 
