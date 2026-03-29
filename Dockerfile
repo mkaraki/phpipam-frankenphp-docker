@@ -14,6 +14,14 @@ ARG PHPIPAM_VERSION="v1.7.4"
 RUN git clone --depth 1 --recursive -b "${PHPIPAM_VERSION}" https://github.com/phpipam/phpipam.git /phpipam
 
 #---------------------------------------------------------
+FROM composer AS composer
+
+WORKDIR /app
+COPY --from=clone --exclude=.git /phpipam /app
+
+RUN composer install --ignore-platform-reqs
+
+#---------------------------------------------------------
 FROM dunglas/frankenphp:${FRANKENPHP_VERSION}-php${PHP_VERSION}-trixie
 
 # Check required extensions for phpipam: https://phpipam.net/documents/installation/
@@ -70,7 +78,7 @@ EOF
 USER ${USER}
 
 WORKDIR /var/www/phpipam
-COPY --from=clone --exclude=.git /phpipam /var/www/phpipam
+COPY --from=composer /app /var/www/phpipam
 
 #RUN cp /var/www/phpipam/config.dist.php /var/www/phpipam/config.php
 RUN cp /var/www/phpipam/config.docker.php /var/www/phpipam/config.php
