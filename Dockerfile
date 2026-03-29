@@ -7,7 +7,7 @@ ARG PHP_VERSION="8.3.29"
 FROM bitnami/git AS clone
 
 # renovate-github-release: repo=phpipam/phpipam
-ARG PHPIPAM_VERSION="v1.7.3"
+ARG PHPIPAM_VERSION="v1.7.4"
 
 RUN git clone --depth 1 --recursive -b "${PHPIPAM_VERSION}" https://github.com/phpipam/phpipam.git /phpipam
 
