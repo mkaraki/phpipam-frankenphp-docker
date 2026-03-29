@@ -49,7 +49,7 @@
         },
         {
             "matchDatasources": ["docker"],
-            "matchPackageNames": ["bitnami/git"],
+            "matchPackageNames": ["bitnami/git", "dunglas/frankenphp"],
             "matchUpdateTypes": ["pin", "pinDigest", "digest"],
             "automerge": true,
             "platformAutomerge": true
