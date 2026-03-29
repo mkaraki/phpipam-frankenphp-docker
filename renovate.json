@@ -37,7 +37,6 @@
         {
             "matchDatasources": ["docker"],
             "matchPackageNames": ["php"],
-            "separateMajorPatch": true,
             "separateMinorPatch": true
         },
         {
