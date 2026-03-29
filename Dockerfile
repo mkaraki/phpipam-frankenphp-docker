@@ -4,7 +4,7 @@
 ARG PHP_VERSION="8.3.29"
 
 #---------------------------------------------------------
-FROM bitnami/git AS clone
+FROM bitnami/git@sha256:e1d8c8b3fe0d8b213157478b1db32d405331394a60eacae0e8b4a4e0c650e9ed AS clone
 
 # renovate-github-release: repo=phpipam/phpipam
 ARG PHPIPAM_VERSION="v1.7.4"
