@@ -17,7 +17,7 @@
                 "/^Dockerfile$/"
             ],
             "matchStrings": [
-                "#\\s*renovate-docker:\\s*repo=(?<depName>.*?)?\\sARG .*_VERSION=\"(?<currentValue>.*)\""
+                "#\\s*renovate-docker:\\s*depName=(?<depName>.*?)?\\sARG .*_VERSION=\"(?<currentValue>.*)\""
             ],
             "datasourceTemplate": "docker"
         }
