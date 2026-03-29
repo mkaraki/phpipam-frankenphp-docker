@@ -43,7 +43,8 @@
             "matchDatasources": ["docker"],
             "matchPackageNames": ["bitnami/git"],
             "matchUpdateTypes": ["pin", "digest"],
-            "automerge": true
+            "automerge": true,
+            "platformAutomerge": true
         }
     ],
     "assignees": [
