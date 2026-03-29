@@ -26,7 +26,8 @@
         {
             "groupName": "FrankenPHP and PHP",
             "groupSlug": "frankenphp-and-php",
-            "matchPackageNames": ["dunglas/frankenphp", "php"]
+            "matchPackageNames": ["dunglas/frankenphp", "php"],
+            "matchUpdateTypes": ["major", "minor", "patch"]
         },
         {
             "matchDatasources": ["docker"],
