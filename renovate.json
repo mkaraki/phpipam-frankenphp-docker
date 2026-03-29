@@ -19,7 +19,8 @@
             "matchStrings": [
                 "#\\s*renovate-docker:\\s*depName=(?<depName>.*?)?\\sARG .*_VERSION=\"(?<currentValue>.*)\""
             ],
-            "datasourceTemplate": "docker"
+            "datasourceTemplate": "docker",
+            "versioning": "semver"
         }
     ],
     "packageRules": [
