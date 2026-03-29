@@ -37,7 +37,13 @@
         {
             "matchDatasources": ["docker"],
             "matchPackageNames": ["php"],
-            "matchUpdateTypes": ["major", "minor", "pin", "digest"],
+            "separateMajorPatch": true,
+            "separateMinorPatch": true
+        },
+        {
+            "matchDatasources": ["docker"],
+            "matchPackageNames": ["php"],
+            "matchUpdateTypes": ["pin", "pinDigest", "digest"],
             "enabled": false
         },
         {
