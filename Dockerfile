@@ -14,7 +14,7 @@ ARG PHPIPAM_VERSION="v1.7.4"
 RUN git clone --depth 1 --recursive -b "${PHPIPAM_VERSION}" https://github.com/phpipam/phpipam.git /phpipam
 
 #---------------------------------------------------------
-FROM dunglas/frankenphp:${FRANKENPHP_VERSION}-php${PHP_VERSION}
+FROM dunglas/frankenphp:${FRANKENPHP_VERSION}-php${PHP_VERSION}-trixie
 
 # Check required extensions for phpipam: https://phpipam.net/documents/installation/
 # And undocumented dependencies: https://github.com/phpipam/phpipam/blob/master/functions/checks/check_php_build.php
@@ -41,6 +41,19 @@ RUN install-php-extensions \
     # dom \
     # pcre \
     # libxml \
+
+
+# renovate-debian: suite=trixie depName=fping
+ARG FPING_VERSION="5.1-1"
+
+# renovate-debian: suite=trixie depName=inetutils-ping
+ARG INETUTILS_PING_VERSION="2:2.6-3+deb13u2"
+
+RUN apt-get update && \
+    apt-get install -y \
+    fping="${FPING_VERSION}" \
+    inetutils-ping="${INETUTILS_PING_VERSION}" \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ENV SERVER_ROOT=/var/www/phpipam
 ENV SERVER_NAME=:80
