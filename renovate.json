@@ -38,6 +38,12 @@
             "matchPackageNames": ["php"],
             "matchUpdateTypes": ["major", "minor", "pin", "digest"],
             "enabled": false
+        },
+        {
+            "matchDatasources": ["docker"],
+            "matchPackageNames": ["bitnami/git"],
+            "matchUpdateTypes": ["pin", "digest"],
+            "automerge": true
         }
     ],
     "assignees": [
