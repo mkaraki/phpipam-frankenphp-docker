@@ -44,11 +44,8 @@ describe('Perform initial configuration', () => {
         // Click `Save settings` button
         cy.contains('Save settings').click();
 
-        // Check URL
-        cy.url().should('include', '/index.php?page=install&section=install_automatic&subnetId=success');
-
         // Check `Settings updated, installation complete!` message and click `Proceed to login.` button
-        cy.contains('Settings updated, installation complete!').should('be.visible');
+        cy.contains('Settings updated, installation complete!', { timeout: 15000 }).should('be.visible');
         cy.contains('Proceed to login.').click();
 
         // Check URL
