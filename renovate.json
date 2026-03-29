@@ -26,13 +26,15 @@
         {
             "groupName": "FrankenPHP and PHP",
             "groupSlug": "frankenphp-and-php",
-            "matchPackageNames": ["dunglas/frankenphp", "php"],
-            "matchUpdateTypes": ["major", "minor", "patch"]
+            "matchPackageNames": ["dunglas/frankenphp", "php"]
         },
         {
             "matchDatasources": ["docker"],
             "matchPackageNames": ["dunglas/frankenphp"],
-            "versioning": "loose"
+            "versioning": "loose",
+            "separateMinorPatch": false,
+            "separateMajorMinor": false,
+            "separateMultipleMinor": false
         },
         {
             "matchDatasources": ["docker"],
