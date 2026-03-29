@@ -17,17 +17,12 @@
                 "/^Dockerfile$/"
             ],
             "matchStrings": [
-                "#\\s*renovate-docker:\\s*repo=(?<depName>.*?)?\\sARG .*_VERSION=\"(?<currentValue>.*)\""
+                "#\\s*renovate-docker:\\s*depName=(?<depName>.*?)?\\sARG .*_VERSION=\"(?<currentValue>.*)\""
             ],
             "datasourceTemplate": "docker"
         }
     ],
     "packageRules": [
-        {
-            "groupName": "FrankenPHP and PHP",
-            "groupSlug": "frankenphp-and-php",
-            "matchPackageNames": ["dunglas/frankenphp", "php"]
-        },
         {
             "matchDatasources": ["docker"],
             "matchPackageNames": ["dunglas/frankenphp"],
@@ -36,13 +31,32 @@
         {
             "matchDatasources": ["docker"],
             "matchPackageNames": ["php"],
-            "matchUpdateTypes": ["major", "minor", "pin", "digest"],
+            "separateMinorPatch": true,
+            "separateMajorMinor": true,
+            "separateMultipleMinor": true
+        },
+        {
+            "matchDatasources": ["docker"],
+            "matchPackageNames": ["php"],
+            "matchUpdateTypes": ["major", "minor", "pin", "pinDigest", "digest"],
             "enabled": false
+        },
+        {
+            "matchDatasources": ["docker"],
+            "matchPackageNames": ["bitnami/git", "dunglas/frankenphp"],
+            "matchUpdateTypes": ["pin", "pinDigest", "digest"],
+            "automerge": true,
+            "platformAutomerge": true
+        },
+        {
+            "groupName": "FrankenPHP and PHP",
+            "groupSlug": "frankenphp-and-php",
+            "matchPackageNames": ["dunglas/frankenphp", "php"],
+            "branchName": "renovate/frankenphp-and-php"
         }
     ],
     "assignees": [
         "mkaraki"
     ],
-    "pinDigests": true,
-    "separateMajorMinor": false
+    "pinDigests": true
 }
