@@ -3,7 +3,7 @@
 # renovate-docker: depName=php
 ARG PHP_VERSION="8.3.30"
 # renovate-docker: depName=dunglas/frankenphp
-ARG FRANKENPHP_VERSION="1.12.1"
+ARG FRANKENPHP_VERSION="1.12.2"
 
 #---------------------------------------------------------
 FROM bitnami/git@sha256:3177712eba9bc86ff6357e88fdaa645890f79361472e8adb4dbe9fbe82d9ea01 AS clone
