@@ -1,7 +1,7 @@
 # See list of supported versions: https://github.com/phpipam/phpipam?tab=readme-ov-file#supported-php-versions
 # Or check the check script: https://github.com/phpipam/phpipam/blob/master/functions/checks/check_php_build.php
 # renovate-docker: depName=php
-ARG PHP_VERSION="8.3.30"
+ARG PHP_VERSION="8.5.5"
 # renovate-docker: depName=dunglas/frankenphp
 ARG FRANKENPHP_VERSION="1.12.2"
 
