@@ -57,7 +57,7 @@ RUN install-php-extensions \
 ARG FPING_VERSION="5.1-1"
 
 # renovate-debian: suite=trixie depName=inetutils-ping
-ARG INETUTILS_PING_VERSION="2:2.6-3+deb13u2"
+ARG INETUTILS_PING_VERSION="2:2.6-3+deb13u3"
 
 RUN apt-get update && \
     apt-get install -y \
