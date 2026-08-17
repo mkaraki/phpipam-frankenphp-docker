@@ -9,7 +9,7 @@ ARG FRANKENPHP_VERSION="1.12.6"
 FROM bitnami/git@sha256:39cfadda7f52efd82655b71bfe5aecac4c7d64e7f8a581d8d49715f665293a7a AS clone
 
 # renovate-github-release: repo=phpipam/phpipam
-ARG PHPIPAM_VERSION="v1.8.1"
+ARG PHPIPAM_VERSION="v1.8.2"
 
 RUN git clone --depth 1 --recursive -b "${PHPIPAM_VERSION}" https://github.com/phpipam/phpipam.git /phpipam
 
