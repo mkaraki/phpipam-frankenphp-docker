@@ -6,7 +6,7 @@ ARG PHP_VERSION="8.5.9"
 ARG FRANKENPHP_VERSION="1.12.7"
 
 #---------------------------------------------------------
-FROM bitnami/git@sha256:1baa6ddbde79fa7ba2fdf441cea47c4f04fae067504d9265e416358db0879ab2 AS clone
+FROM bitnami/git@sha256:054cbf4bb07a7b3ad325e8c34a11a66ea291e52f8154593d8f643aab70d638bc AS clone
 
 # renovate-github-release: repo=phpipam/phpipam
 ARG PHPIPAM_VERSION="v1.8.2"
