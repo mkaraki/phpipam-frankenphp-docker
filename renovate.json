@@ -63,11 +63,22 @@
             "groupName": "FrankenPHP and PHP",
             "groupSlug": "frankenphp-and-php",
             "matchPackageNames": ["dunglas/frankenphp", "php"],
-            "branchName": "renovate/frankenphp-and-php"
-        }
+            "branchName": "renovate/frankenphp-and-php",
+            "automerge": true,
+            "automergeType": "pr"
+        },
+        "packageRules": [
+            {
+                "matchDatasources": ["npm"],
+                "minimumReleaseAge": "3 days",
+                "automerge": true,
+                "automergeType": "pr"
+            }
+        ]
     ],
     "assignees": [
         "mkaraki"
     ],
-    "pinDigests": true
+    "pinDigests": true,
+    "minimumReleaseAge": "3 days"
 }
